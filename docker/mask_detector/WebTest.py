@@ -249,17 +249,17 @@ def SetCamera(address):
         GenRawJPEGThread.daemon = True
         GenRawJPEGThread.start()
 
-    #if GenDetectJPEGThread == None:
-    #    print("Start Detect Thread")
-    #    GenDetectJPEGThread = Thread(target=GenerateDetectWebFrame, args=())
-    #    GenDetectJPEGThread.daemon = True
-    #    GenDetectJPEGThread.start()
+    if GenDetectJPEGThread == None:
+        print("Start Detect Thread")
+        GenDetectJPEGThread = Thread(target=GenerateDetectWebFrame, args=())
+        GenDetectJPEGThread.daemon = True
+        GenDetectJPEGThread.start()
 
     return "Successfully added Camera at " + address
 
 if __name__ == '__main__':
 
-    CodePath = "/maskdetector/DetectCode/"
+    CodePath = "DetectCode/"
     prototxtPath = os.path.sep.join([CodePath, "face_detector", "deploy.prototxt"])
     weightsPath  = os.path.sep.join([CodePath, "face_detector", "res10_300x300_ssd_iter_140000.caffemodel"])
     faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
