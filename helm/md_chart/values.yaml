@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: bmceniery/md_service
-  tag: 1.8
+  tag: 1.9
   pullPolicy: Always
 
 imagePullSecrets: []
